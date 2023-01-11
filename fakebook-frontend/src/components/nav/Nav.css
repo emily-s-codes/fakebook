@@ -1,0 +1,22 @@
+header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: blanchedalmond;
+}
+
+header ul {
+    display: flex;
+    gap: 20px;
+    list-style-type: none;
+}
+
+header ul a {
+    text-decoration: none;
+    color: green;
+}
+
+header ul a:hover {
+    text-decoration: underline;
+}

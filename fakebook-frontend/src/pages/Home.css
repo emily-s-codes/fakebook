@@ -1,0 +1,8 @@
+.homeMain {
+    padding: 20px;
+}
+
+.contactsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}

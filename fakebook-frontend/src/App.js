@@ -1,23 +1,37 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './App.css';
+import Nav from './components/nav/Nav';
+import Add from './pages/Add';
+import Detail from './pages/Detail';
+import Home from './pages/Home';
 
 function App() {
+  const [contacts, setContacts] = useState([])
+
+  useEffect(() => {
+    fetch('http://localhost:9999/api/fakebook')
+      .then(res => {
+        console.log(res)
+        return res.json()
+      })
+      .then(data => {
+        console.log(data)
+        setContacts(data)
+      })
+      .catch(err => console.log(err))
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Nav />
+        <Routes>
+          <Route path={'/'} element={<Home contacts={contacts} />} />
+          <Route path={'/contact/:id'} element={<Detail contacts={contacts} />} />
+          <Route path={'/new'} element={<Add />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
