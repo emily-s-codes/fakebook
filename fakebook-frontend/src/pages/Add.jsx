@@ -5,7 +5,7 @@ const Add = ({ refresh, setRefresh }) => {
         e.preventDefault()
         const form = new FormData(e.target)
 
-        fetch('http://localhost:9999/api/fakebook/add', {
+        fetch(`${process.env.REACT_APP_BACKENDURL}/api/fakebook/add`, {
             method: 'POST',
             body: form
         })

@@ -11,7 +11,7 @@ function App() {
   const [refresh, setRefresh] = useState(true)
 
   useEffect(() => {
-    fetch('http://localhost:9999/api/fakebook')
+    fetch(`${process.env.REACT_APP_BACKENDURL}/api/fakebook`)
       .then(res => {
         console.log(res)
         return res.json()
