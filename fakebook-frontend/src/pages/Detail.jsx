@@ -5,10 +5,10 @@ import "./Detail.css"
 const Detail = () => {
     const params = useParams()
     const [singleContact, setSingleContact] = useState([])
-    const contact = singleContact[0]
+
 
     useEffect(() => {
-        fetch(`http://localhost:9999/api/fakebook/${params.id}`)
+        fetch(`${process.env.REACT_APP_BACKENDURL}/api/fakebook/profile/${params.id}`)
             .then(res => {
                 console.log(res)
                 return res.json()
@@ -16,22 +16,22 @@ const Detail = () => {
             .then(data => {
                 console.log(data)
                 setSingleContact(data)
+                console.log(data.env)
             })
             .catch(err => console.log(err))
     }, [params.id])
 
     return (
         <div>
-            <p>{contact?.name}</p>
-            <p>{contact?.last}</p>
-            <p>{contact?.dob}</p>
-            <p>{contact?.cell}</p>
-            <p>{contact?.email}</p>
-            <p>{contact?.job}</p>
-            <p>{contact?.salary}</p>
-
-            <p>{contact?.freelance ? 'freelancer' : 'employee'}</p>
-            <p>{contact?.existing ? 'existing contact' : 'potential contact'}</p>
+            <p>{singleContact[0]?.name}</p>
+            <p>{singleContact[0]?.last}</p>
+            <p>{singleContact[0]?.dob}</p>
+            <p>{singleContact[0]?.cell}</p>
+            <p>{singleContact[0]?.email}</p>
+            <p>{singleContact[0]?.job}</p>
+            <p>{singleContact[0]?.salary}</p>
+            <p>{singleContact[0]?.freelance ? 'freelancer' : 'employee'}</p>
+            <p>{singleContact[0]?.existing ? 'existing contact' : 'potential contact'}</p>
         </div>
     );
 }
