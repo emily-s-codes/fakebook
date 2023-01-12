@@ -11,6 +11,6 @@ input[type=submit] {
     width: 200px;
 }
 
-.pending {
+.success {
     display: none;
 }

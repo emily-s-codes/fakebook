@@ -31,7 +31,7 @@ const Add = ({ refresh, setRefresh }) => {
 
     return (
         <main className="addMain">
-            <form onSubmit={submitForm} className={pending ? "pending" : ""}>
+            <form onSubmit={submitForm} className={success ? "success" : ""}>
                 <input type="text" placeholder="first name"
                     name="name" maxLength="20" />
                 <input type="text" placeholder="last name"

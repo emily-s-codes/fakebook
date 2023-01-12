@@ -53,6 +53,17 @@ app.post(addPath, formReader.none(),
                 })
                 .then(acknowledge => res.status(200).json(acknowledge))
         }
-    })
+    }
+)
+
+app.delete(profilePath, (req, res) => {
+    const params = req.params.id
+    const searchId = ObjectID(params)
+
+    getDb()
+        .then(db => db.collection('contacts').deleteOne({ "_id": searchId }))
+        .then(data => res.status(200).json(data))
+
+})
 
 app.listen(PORT, () => console.log('running on', PORT))
