@@ -1,4 +1,3 @@
-import { application } from "express";
 import { MongoClient } from "mongodb";
 
 const url = process.env.MONGO_URI

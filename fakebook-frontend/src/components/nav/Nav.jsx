@@ -6,7 +6,7 @@ const Nav = () => {
         <h1>Fakebook</h1>
         <ul>
             <NavLink to={"/"}>Home</NavLink>
-            <NavLink to={"/contact/new"}>Add Contact</NavLink>
+            <NavLink to={"/new"}>Add Contact</NavLink>
         </ul>
     </header>);
 }

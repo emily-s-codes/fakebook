@@ -1,7 +1,11 @@
 import "./Add.css"
 
 const Add = () => {
-    return (<div>add</div>);
+    return (
+        <main className="addMain">
+            <form action="" ></form>
+        </main>
+    );
 }
 
 export default Add;
