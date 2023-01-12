@@ -56,6 +56,7 @@ const Detail = ({ refresh, setRefresh }) => {
                 <p>{singleContact[0]?.freelance ? 'freelancer' : 'employee'}</p>
                 <p>{singleContact[0]?.existing ? 'existing contact' : 'potential contact'}</p>
                 <button onClick={deleteContact}>delete this contact</button>
+                <Link to={`/edit/${params.id}`}>edit this contact</Link>
                 {deletePending &&
                     <p>Your request is processing. Thanks for your patience with our server!</p>
                 }
