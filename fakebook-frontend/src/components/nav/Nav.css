@@ -3,7 +3,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: blanchedalmond;
+    background-color: lightblue;
 }
 
 header ul {
@@ -14,9 +14,10 @@ header ul {
 
 header ul a {
     text-decoration: none;
-    color: green;
+    color: black;
 }
 
 header ul a:hover {
     text-decoration: underline;
+    color: crimson;
 }

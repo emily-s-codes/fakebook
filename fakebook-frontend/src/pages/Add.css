@@ -1,0 +1,12 @@
+form {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+input[type=text],
+input[type=number],
+input[type=email],
+input[type=submit] {
+    width: 200px;
+}

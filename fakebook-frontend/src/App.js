@@ -8,6 +8,7 @@ import Home from './pages/Home';
 
 function App() {
   const [contacts, setContacts] = useState([])
+  const [refresh, setRefresh] = useState(true)
 
   useEffect(() => {
     fetch('http://localhost:9999/api/fakebook')
@@ -20,7 +21,7 @@ function App() {
         setContacts(data)
       })
       .catch(err => console.log(err))
-  }, [])
+  }, [refresh])
 
   return (
     <div className="App">
@@ -29,7 +30,7 @@ function App() {
         <Routes>
           <Route path={'/'} element={<Home contacts={contacts} />} />
           <Route path={'/contact/:id'} element={<Detail contacts={contacts} />} />
-          <Route path={'/new'} element={<Add />} />
+          <Route path={'/new'} element={<Add refresh={refresh} setRefresh={setRefresh} />} />
         </Routes>
       </Router>
     </div>
