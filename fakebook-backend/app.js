@@ -11,7 +11,7 @@ import { body, validationResult } from 'express-validator'
 const PORT = process.env.PORT
 const app = express()
 
-const upload = multer()
+const formReader = multer()
 
 app.use(cors())
 app.use(morgan('dev'))
@@ -38,7 +38,7 @@ app.get(profilePath, (req, res) => {
         .then(data => res.status(200).json(data))
 })
 
-app.post(addPath, upload.none(),
+app.post(addPath, formReader.none(),
     // body('email').isEmail(),
     // body('name').isLength({ min: 1, max: 50 }),
     // body('last').isLength({ min: 1, max: 50 }),

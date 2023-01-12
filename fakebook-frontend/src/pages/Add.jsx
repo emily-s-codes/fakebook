@@ -1,34 +1,13 @@
-import { useState } from "react";
 import "./Add.css"
 
 const Add = ({ refresh, setRefresh }) => {
-    const [name, setName] = useState('')
-    const [last, setLast] = useState('')
-    const [dob, setDob] = useState('')
-    const [cell, setCell] = useState('')
-    const [email, setEmail] = useState('')
-    const [job, setJob] = useState('')
-    const [salary, setSalary] = useState('')
-    const [freelance, setFreelance] = useState(false)
-    const [customer, setCustomer] = useState(false)
-
-    const handleFreelancer = (e) => {
-        setFreelance(e.target.value)
-    }
-    const handleCustomer = (e) => {
-        setCustomer(e.target.value)
-    }
-
     const submitForm = (e) => {
         e.preventDefault()
         const form = new FormData(e.target)
 
         fetch('http://localhost:9999/api/fakebook/add', {
             method: 'POST',
-            body: form,
-            headers: {
-                'content-type': 'multipart/form-data'
-            }
+            body: form
         })
             .then(response => {
                 if (response.ok) setRefresh(!refresh)
