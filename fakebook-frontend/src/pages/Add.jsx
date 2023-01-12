@@ -19,11 +19,16 @@ const Add = ({ refresh, setRefresh }) => {
                 if (response.ok) {
                     setRefresh(!refresh)
                     setSuccess(!success)
-                } else setFailure(true)
+                    setPending(false)
+
+                } else {
+                    setFailure(true)
+                    setPending(false)
+                }
             })
     }
 
-    const resetPage = () => {
+    const resetForm = () => {
         setSuccess(false)
         setFailure(false)
         setPending(false)
@@ -45,25 +50,25 @@ const Add = ({ refresh, setRefresh }) => {
                 </div>
                 <div>
                     <p>Freelancer?</p>
-                    <input type="radio" name="freelance" placeholder="freelance" id="freelanceY" value="true" /><label for="freelanceY">Yes</label>
-                    <input type="radio" name="freelance" placeholder="freelance" id="freelanceN" value="false" defaultChecked /><label for="freelanceN">No</label>
+                    <input type="radio" name="freelance" placeholder="freelance" id="freelanceY" value="true" /><label htmlFor="freelanceY">Yes</label>
+                    <input type="radio" name="freelance" placeholder="freelance" id="freelanceN" value="false" defaultChecked /><label htmlFor="freelanceN">No</label>
                 </div>
                 <div>
                     <p>Contact?</p>
-                    <input type="radio" name="contact" id="new" value="false" defaultChecked /><label for="new">New</label>
-                    <input type="radio" name="contact" id="existing" value="true" /><label for="existing">Existing</label>
+                    <input type="radio" name="contact" id="new" value="false" defaultChecked /><label htmlFor="new">New</label>
+                    <input type="radio" name="contact" id="existing" value="true" /><label htmlFor="existing">Existing</label>
                 </div>
                 <input type="submit" value="add" onClick={() => setPending(!pending)} />
             </form>
             {success &&
                 <section className="successSection">
                     <p>Thanks for updating your contacts list!</p>
-                    <Link to="/new" onClick={resetPage}>Add another new contact</Link>
+                    <Link to="/new" onClick={resetForm}>Add another new contact</Link>
                 </section>}
             {failure &&
-                <section className="successSection">
+                <section className="failSection">
                     <p>Sorry, something went wrong with your request.</p>
-                    <Link to="/new" onClick={resetPage}>Please try to add your contact again</Link>
+                    <Link to="/new" onClick={resetForm}>Please try to add your contact again</Link>
                 </section>
             }
         </main>

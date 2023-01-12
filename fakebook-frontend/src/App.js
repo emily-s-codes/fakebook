@@ -29,7 +29,7 @@ function App() {
         <Nav />
         <Routes>
           <Route path={'/'} element={<Home contacts={contacts} />} />
-          <Route path={'/contact/:id'} element={<Detail contacts={contacts} />} />
+          <Route path={'/contact/:id'} element={<Detail refresh={refresh} setRefresh={setRefresh} contacts={contacts} />} />
           <Route path={'/new'} element={<Add refresh={refresh} setRefresh={setRefresh} />} />
         </Routes>
       </Router>
