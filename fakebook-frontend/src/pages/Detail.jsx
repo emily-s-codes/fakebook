@@ -8,7 +8,7 @@ const Detail = () => {
 
 
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_BACKENDURL}/api/fakebook/${params.id}`)
+        fetch(`${process.env.REACT_APP_BACKENDURL}/api/fakebook/profile/${params.id}`)
             .then(res => {
                 console.log(res)
                 return res.json()

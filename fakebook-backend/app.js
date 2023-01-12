@@ -39,20 +39,20 @@ app.get(profilePath, (req, res) => {
 })
 
 app.post(addPath, formReader.none(),
-    // body('email').isEmail(),
-    // body('name').isLength({ min: 1, max: 50 }),
-    // body('last').isLength({ min: 1, max: 50 }),
+    body('email').isEmail(),
+    body('name').isLength({ min: 1, max: 50 }),
+    body('last').isLength({ min: 1, max: 50 }),
     (req, res) => {
         const contact = req.body
-        // const errors = validationResult(req)
-        // if (!errors.isEmpty()) {
-        getDb()
-            .then(db => {
-                console.log('logging new contact', contact)
-                return db.collection('contacts').insertOne(contact)
-            })
-            .then(acknowledge => res.status(200).json(acknowledge))
-        //}
+        const errors = validationResult(req)
+        if (!errors.isEmpty()) {
+            getDb()
+                .then(db => {
+                    console.log('logging new contact', contact)
+                    return db.collection('contacts').insertOne(contact)
+                })
+                .then(acknowledge => res.status(200).json(acknowledge))
+        }
     })
 
 app.listen(PORT, () => console.log('running on', PORT))
