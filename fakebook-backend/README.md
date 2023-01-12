@@ -9,7 +9,7 @@
 - [x] setup express server
 - [ ] ROUTES: crud
     - [x] get (/contacts)
-        - [ ] test with thunder
+        - [x] test with thunder
     - [ ] get (/contacts/:id)
         - [ ] test with thunder
     - [x] post (/contact/new)
