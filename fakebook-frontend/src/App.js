@@ -32,7 +32,7 @@ function App() {
           <Route path={'/'} element={<Home contacts={contacts} />} />
           <Route path={'/contact/:id'} element={<Detail refresh={refresh} setRefresh={setRefresh} contacts={contacts} />} />
           <Route path={'/new'} element={<Add refresh={refresh} setRefresh={setRefresh} />} />
-          <Route path={'/edit/:id'} element={<Edit refresh={refresh} setRefresh={setRefresh} />} />
+          <Route path={'/edit/:id'} element={<Edit contacts={contacts} refresh={refresh} setRefresh={setRefresh} />} />
         </Routes>
       </Router>
     </div>
