@@ -1,14 +1,23 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import "./Edit.css"
 
-const Edit = ({ refresh, setRefresh }) => {
+const Edit = ({ contacts, refresh, setRefresh }) => {
+    const params = useParams()
     const [editSuccess, setEditSuccess] = useState(false)
     const [editPending, setEditPending] = useState(false)
     const [editFailure, setEditFailure] = useState(false)
     const [editContact, setEditContact] = useState([])
-    const params = useParams()
-    console.log(params)
+    const [updatedName, setUpdatedName] = useState()
+    const [currentContactState, setCurrentContactState] = useState("")
+
+    console.log(currentContactState?.existing)
+
+    useEffect(() => {
+        const currentContact = contacts.filter(contact => contact._id === params.id)[0]
+        console.log(currentContact)
+        setCurrentContactState(currentContact)
+    }, [contacts])
 
     useEffect(() => {
         fetch(`${process.env.REACT_APP_BACKENDURL}/api/fakebook/profile/${params.id}`)
@@ -20,7 +29,7 @@ const Edit = ({ refresh, setRefresh }) => {
                 setEditContact(data[0])
             })
             .catch(err => console.log(err))
-    }, [params.id])
+    }, [refresh])
 
     const submitUpdate = (e) => {
         e.preventDefault()
@@ -48,25 +57,25 @@ const Edit = ({ refresh, setRefresh }) => {
             <section className="mainLeft">
                 <form onSubmit={submitUpdate} className={editSuccess ? "success" : ""}>
                     <input type="text" placeholder="first name"
-                        name="name" maxLength="20" />
+                        name="name" maxLength="20" defaultValue={currentContactState?.name} />
                     <input type="text" placeholder="last name"
-                        name="last" maxLength="100" />
-                    <input type="text" placeholder="MM-DD-YYYY" name="dob" />
-                    <input type="number" placeholder="cell number" name="cell" />
-                    <input type="email" placeholder="email address" name="email" />
-                    <input type="text" placeholder="job title" name="job" />
+                        name="last" maxLength="100" defaultValue={currentContactState?.last} />
+                    <input type="text" placeholder="MM-DD-YYYY" name="dob" defaultValue={currentContactState?.dob} />
+                    <input type="number" placeholder="cell number" name="cell" defaultValue={currentContactState?.cell} />
+                    <input type="email" placeholder="email address" name="email" defaultValue={currentContactState?.email} />
+                    <input type="text" placeholder="job title" name="job" defaultValue={currentContactState?.job} />
                     <div>
-                        <input type="number" placeholder="annual salary in euro" name="salary" /><span> €</span>
+                        <input type="number" placeholder="annual salary in euro" name="salary" defaultValue={currentContactState?.salary} /><span> €</span>
                     </div>
                     <div>
                         <p>Freelancer?</p>
-                        <input type="radio" name="freelance" placeholder="freelance" id="freelanceY" value="true" /><label htmlFor="freelanceY">Yes</label>
-                        <input type="radio" name="freelance" placeholder="freelance" id="freelanceN" value="false" defaultChecked /><label htmlFor="freelanceN">No</label>
+                        <input type="radio" name="freelance" placeholder="freelance" id="freelanceY" value="true" defaultChecked={currentContactState?.freelance ? true : false} /><label htmlFor="freelanceY">Yes</label>
+                        <input type="radio" name="freelance" placeholder="freelance" id="freelanceN" value="false" defaultChecked={currentContactState?.freelance ? false : true} /><label htmlFor="freelanceN">No</label>
                     </div>
                     <div>
                         <p>Contact?</p>
-                        <input type="radio" name="contact" id="new" value="false" defaultChecked /><label htmlFor="new">New</label>
-                        <input type="radio" name="contact" id="existing" value="true" /><label htmlFor="existing">Existing</label>
+                        <input type="radio" name="contact" id="new" value="false" defaultChecked={(currentContactState?.existing === true) ? false : true} /><label htmlFor="new">New</label>
+                        <input type="radio" name="contact" id="existing" value="true" defaultChecked={(currentContactState?.existing === true) ? true : false} /><label htmlFor="existing">Existing</label>
                     </div>
                     <input type="submit" value="edit" onClick={() => setEditPending(!editPending)} />
                 </form>
