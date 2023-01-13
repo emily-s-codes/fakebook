@@ -4,8 +4,7 @@ import './config/config.js'
 import morgan from 'morgan'
 import multer from 'multer'
 import { body, validationResult } from 'express-validator'
-import { addNewContact, deleteContact, editContact, getAllContacts, getSingleContact } from './model/ProfileDao.js'
-
+import { addNewContact, deleteSingleContact, editSingleContact, getAllContacts, getSingleContact } from './controller/profileController.js'
 
 const PORT = process.env.PORT
 const app = express()
@@ -34,8 +33,8 @@ app.post(addPath, formReader.none(),
 app.put(profilePath, formReader.none(), // body('email').isEmail(),
     // body('name').isLength({ min: 1, max: 50 }),
     // body('last').isLength({ min: 1, max: 50 }),
-    editContact)
+    editSingleContact)
 
-app.delete(profilePath, deleteContact)
+app.delete(profilePath, deleteSingleContact)
 
 app.listen(PORT, () => console.log('running on', PORT))

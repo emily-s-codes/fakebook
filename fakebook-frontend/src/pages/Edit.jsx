@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import "./Edit.css"
 
@@ -8,7 +8,6 @@ const Edit = ({ contacts, refresh, setRefresh }) => {
     const [editPending, setEditPending] = useState(false)
     const [editFailure, setEditFailure] = useState(false)
     const [editContact, setEditContact] = useState([])
-    const [updatedName, setUpdatedName] = useState()
     const [currentContactState, setCurrentContactState] = useState("")
 
     console.log(currentContactState?.existing)
