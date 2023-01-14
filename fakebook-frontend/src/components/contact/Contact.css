@@ -1,5 +1,28 @@
 .contactDiv {
     width: 200px;
-    height: 200px;
-    border: 1px solid black;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.contactDiv:hover {
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+
+.contactDivLink {
+    text-decoration: none;
+    color: #13005A;
+}
+
+.contactJob {
+    font-family: 'Roboto-Light', sans-serif;
+    font-size: 1.2rem;
+}
+
+@media only screen and (min-width: 576px) {
+    /* not sure yet */
 }

@@ -4,12 +4,13 @@ import "./Contact.css"
 const Contact = ({ contact }) => {
 
     return (
-        <Link to={`/contact/${contact?._id}`}>
+        <Link to={`/contact/${contact?._id}`} className="contactDivLink">
             <article className="contactDiv">
-                <p>{contact?.name}</p>
-                <p>{contact?.last}</p>
-                <p>{contact?.job}</p>
-
+                <div className="contactDivLeft">
+                    <p>{contact?.name}</p>
+                    <p>{contact?.last}</p>
+                </div>
+                <p className="contactJob">{contact?.job}</p>
             </article>
         </Link>
 

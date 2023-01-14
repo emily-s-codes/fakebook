@@ -1,16 +1,20 @@
 import Contact from "../components/contact/Contact";
+import Pagination from "../components/pagination/Pagination";
 import "./Home.css"
-const Home = ({ contacts }) => {
+const Home = ({ currentRecords, loading, nPages, currentPage, setCurrentPage }) => {
 
 
     return (
         <main className="homeMain">
-            <h2>home</h2>
+            {loading && <section>
+                <p>Your address book is loading ...</p>
+            </section>}
             <section className="contactsGrid">
-                {contacts?.map((contact, key) => {
+                {currentRecords?.map((contact, key) => {
                     return <Contact key={key} contact={contact} />
                 })}
             </section>
+            <Pagination nPages={nPages} currentPage={currentPage} setCurrentPage={setCurrentPage} />
         </main>);
 }
 

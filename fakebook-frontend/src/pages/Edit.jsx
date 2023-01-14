@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
+import Button from "../components/button/Button"
 import "./Edit.css"
 
 const Edit = ({ contacts, refresh, setRefresh }) => {
@@ -56,7 +57,7 @@ const Edit = ({ contacts, refresh, setRefresh }) => {
     }
 
     return (
-        <main className="addMain">
+        <main className="editMain">
             <section className="mainForm">
                 <form onSubmit={submitUpdate} className={editSuccess ? "success" : ""}>
                     <input type="text" placeholder="first name"

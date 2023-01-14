@@ -11,11 +11,19 @@ import Home from './pages/Home';
 function App() {
   const [contacts, setContacts] = useState([])
   const [refresh, setRefresh] = useState(true)
+  const [loading, setLoading] = useState(true)
+  const [currentPage, setCurrentPage] = useState(1)
+  const [recordsPerPage] = useState(6)
+
+  const indexOfLast = currentPage * recordsPerPage
+  const indexOfFirst = indexOfLast - recordsPerPage
+  const nPages = Math.ceil(contacts.length / recordsPerPage)
+  const currentRecords = contacts.slice(indexOfFirst, indexOfLast)
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_BACKENDURL}/api/fakebook`)
       .then(res => {
-        console.log(res)
+        setLoading(false)
         return res.json()
       })
       .then(data => {
@@ -30,7 +38,7 @@ function App() {
       <Router>
         <Nav />
         <Routes>
-          <Route path={'/'} element={<Home contacts={contacts} />} />
+          <Route path={'/'} element={<Home currentRecords={currentRecords} loading={loading} nPages={nPages} currentPage={currentPage} setCurrentPage={setCurrentPage} />} />
           <Route path={'/contact/:id'} element={<Detail refresh={refresh} setRefresh={setRefresh} contacts={contacts} />} />
           <Route path={'/new'} element={<Add refresh={refresh} setRefresh={setRefresh} />} />
           <Route path={'/edit/:id'} element={<Edit contacts={contacts} refresh={refresh} setRefresh={setRefresh} />} />

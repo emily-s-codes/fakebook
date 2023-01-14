@@ -14,11 +14,11 @@
         - [x] test with thunder
     - [x] post (/contact/new)
         - [x] test with thunder
-- [ ] rebuild with controller and model
+- [x] rebuild with controller and model
 
 ## Backend 2.0
-- [ ] ROUTES: crud
-    - [ ] put (/contacts/:id)
+- [x] ROUTES: crud
+    - [x] put (/contacts/:id)
     - [x] delete (/contacts/:id)
 - [ ] sort data functionality
 - [ ] photo upload
@@ -27,23 +27,23 @@
 # Frontend
 - [x] install react-router-dom
 - [x] define routes
-- [ ] setup pages
-    - [ ] overall structure: header/footer and back button on each page
-    - [ ] home ('/')
-        - [ ] fetch get (/contacts)
-    - [ ] detail ('/contact/:id')
-        - [ ] fetch get (/contacts/:id)
-    - [ ] add  ('/contact/new')
-        - [ ] fetch post (/contact/new)
-- [ ] setup components
+- [x] setup pages
+    - [x] overall structure: header/footer and back button on each page
+    - [x] home ('/')
+        - [x] fetch get (/contacts)
+    - [x] detail ('/contact/:id')
+        - [x] fetch get (/contacts/:id)
+    - [x] add  ('/contact/new')
+        - [x] fetch post (/contact/new)
+- [x] setup components
     - [x] overall structure
     - [x] header/nav
-    - [ ] footer
+    - [x] footer
     - [x] form
     - [x] person
-    - [ ] back (useNav -1)
+    - [x] back (useNav -1)
     - [x] add
-- [ ] change favicon
+- [x] change favicon
 - [ ] find Dribbble design
 - [ ] implement design
 

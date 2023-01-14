@@ -41,7 +41,7 @@ const Detail = ({ refresh, setRefresh }) => {
     }, [params.id])
 
     return (
-        <main>
+        <main className="detailMain">
             <section className={deleteSuccess ? "singleContact singleSuccess" : "singleContact"}>
                 <p>{singleContact[0]?.name}</p>
                 <p>{singleContact[0]?.last}</p>

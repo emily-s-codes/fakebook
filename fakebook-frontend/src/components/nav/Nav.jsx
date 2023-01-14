@@ -3,7 +3,7 @@ import "./Nav.css"
 
 const Nav = () => {
     return (<header>
-        <Link>
+        <Link to="/">
             <h1>Fakebook</h1>
         </Link>
     </header>);

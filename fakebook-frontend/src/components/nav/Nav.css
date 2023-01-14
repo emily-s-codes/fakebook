@@ -1,13 +1,15 @@
 header {
     width: 100%;
-    padding: 10px;
+    padding: 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     background-color: lightblue;
     position: fixed;
     top: 0;
     left: 0;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 header a {

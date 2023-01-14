@@ -2,26 +2,29 @@ footer {
     width: 100%;
     padding: 10px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    background-color: lightblue;
-    position: fixed;
+    background-color: rgb(173, 216, 230);
+    position: sticky;
     bottom: 0;
     left: 0;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 
-footer ul {
+.footerUL {
     display: flex;
-    gap: 20px;
+    width: 100%;
+    padding: 10px;
+    justify-content: space-between;
     list-style-type: none;
 }
 
-footer ul a {
+.footerUL a {
     text-decoration: none;
     color: black;
 }
 
-footer ul a:hover {
+.footerUL a:hover {
     text-decoration: underline;
-    color: crimson;
+    color: #03C988;
 }
