@@ -30,6 +30,10 @@ const Edit = ({ contacts, refresh, setRefresh }) => {
             .catch(err => console.log(err))
     }, [refresh])
 
+    const editAgain = () => {
+
+    }
+
     const submitUpdate = (e) => {
         e.preventDefault()
         const form = new FormData(e.target)
@@ -53,7 +57,7 @@ const Edit = ({ contacts, refresh, setRefresh }) => {
 
     return (
         <main className="addMain">
-            <section className="mainLeft">
+            <section className="mainForm">
                 <form onSubmit={submitUpdate} className={editSuccess ? "success" : ""}>
                     <input type="text" placeholder="first name"
                         name="name" maxLength="20" defaultValue={currentContactState?.name} />
@@ -82,6 +86,7 @@ const Edit = ({ contacts, refresh, setRefresh }) => {
                     <section className="editSuccessSection">
                         <p>Thanks for updating your contacts list!</p>
                         <Link to="/" >Home</Link>
+                        <p onClick={() => window.location.reload()}>Edit Again</p>
                     </section>}
                 {editFailure &&
                     <section className="editFailSection">
@@ -90,18 +95,19 @@ const Edit = ({ contacts, refresh, setRefresh }) => {
                     </section>
                 }
             </section>
-            <section className="mainRight">
-                <h2>Previous Contact Info</h2>
-                <p>First Name: {editContact?.name}</p>
-                <p>Last Name: {editContact?.last}</p>
-                <p>Date of Birth: {editContact?.dob}</p>
-                <p>Cell: {editContact?.cell}</p>
-                <p>Email: {editContact?.email}</p>
-                <p>Job: {editContact?.job}</p>
-                <p>Salary: {editContact?.salary}</p>
-                {editContact?.freelance ? <p>Employment type: freelancer</p> : <p>Employment type: employee</p>}
-                {editContact?.contact ? <p>Existing contact</p> : <p>New contact</p>}
-            </section>
+            {editSuccess &&
+                <section className="newContactInfo">
+                    <h2>Updated Contact Info</h2>
+                    <p>First Name: {editContact?.name}</p>
+                    <p>Last Name: {editContact?.last}</p>
+                    <p>Date of Birth: {editContact?.dob}</p>
+                    <p>Cell: {editContact?.cell}</p>
+                    <p>Email: {editContact?.email}</p>
+                    <p>Job: {editContact?.job}</p>
+                    <p>Salary: {editContact?.salary}</p>
+                    {editContact?.freelance ? <p>Employment type: freelancer</p> : <p>Employment type: employee</p>}
+                    {editContact?.contact ? <p>Existing contact</p> : <p>New contact</p>}
+                </section>}
         </main>
     );
 }

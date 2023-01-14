@@ -1,13 +1,11 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Nav.css"
 
 const Nav = () => {
     return (<header>
-        <h1>Fakebook</h1>
-        <ul>
-            <NavLink to={"/"}>Home</NavLink>
-            <NavLink to={"/new"}>Add Contact</NavLink>
-        </ul>
+        <Link>
+            <h1>Fakebook</h1>
+        </Link>
     </header>);
 }
 

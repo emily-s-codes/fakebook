@@ -32,13 +32,10 @@ const Detail = ({ refresh, setRefresh }) => {
     useEffect(() => {
         fetch(`${process.env.REACT_APP_BACKENDURL}/api/fakebook/profile/${params.id}`)
             .then(res => {
-                console.log(res)
                 return res.json()
             })
             .then(data => {
-                console.log(data)
                 setSingleContact(data)
-                console.log(data.env)
             })
             .catch(err => console.log(err))
     }, [params.id])

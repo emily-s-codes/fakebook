@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './App.css';
+import Footer from './components/footer/Footer';
 import Nav from './components/nav/Nav';
 import Add from './pages/Add';
 import Detail from './pages/Detail';
@@ -34,6 +35,7 @@ function App() {
           <Route path={'/new'} element={<Add refresh={refresh} setRefresh={setRefresh} />} />
           <Route path={'/edit/:id'} element={<Edit contacts={contacts} refresh={refresh} setRefresh={setRefresh} />} />
         </Routes>
+        <Footer />
       </Router>
     </div>
   );

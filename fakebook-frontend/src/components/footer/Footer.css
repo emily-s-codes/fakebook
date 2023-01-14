@@ -1,4 +1,4 @@
-header {
+footer {
     width: 100%;
     padding: 10px;
     display: flex;
@@ -6,16 +6,22 @@ header {
     align-items: center;
     background-color: lightblue;
     position: fixed;
-    top: 0;
+    bottom: 0;
     left: 0;
 }
 
-header a {
+footer ul {
+    display: flex;
+    gap: 20px;
+    list-style-type: none;
+}
+
+footer ul a {
     text-decoration: none;
     color: black;
 }
 
-header a:hover {
+footer ul a:hover {
     text-decoration: underline;
-    color: red;
+    color: crimson;
 }

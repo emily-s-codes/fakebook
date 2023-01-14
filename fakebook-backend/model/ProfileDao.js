@@ -4,11 +4,11 @@ const COL = 'contacts'
 
 export const allContacts = () => {
     console.log('allContacts called')
-    return new Promise((_, reject) => {
+    return new Promise((resolve, reject) => {
         getDb()
             .then(db => db.collection(COL).find())
             .then(pointer => pointer.toArray())
-            .then(data => console.log(data))
+            .then(data => resolve(data))
             .catch(err => reject(err))
     })
 
