@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
-import Button from "../components/button/Button"
 import "./Edit.css"
 
 const Edit = ({ contacts, refresh, setRefresh }) => {
@@ -81,7 +80,7 @@ const Edit = ({ contacts, refresh, setRefresh }) => {
                         <input type="radio" name="contact" id="new" value="false" defaultChecked={(currentContactState?.existing === true) ? false : true} /><label htmlFor="new">New</label>
                         <input type="radio" name="contact" id="existing" value="true" defaultChecked={(currentContactState?.existing === true) ? true : false} /><label htmlFor="existing">Existing</label>
                     </div>
-                    <input type="submit" value="edit" onClick={() => setEditPending(!editPending)} />
+                    <input type="submit" value="submit" onClick={() => setEditPending(!editPending)} />
                 </form>
                 {editSuccess &&
                     <section className="editSuccessSection">

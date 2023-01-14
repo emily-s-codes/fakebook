@@ -1,3 +1,35 @@
 .singleSuccess {
     display: none;
 }
+
+.detailButtonSection {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+button,
+.editContactButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 40px;
+    color: #13005A;
+    background-color: rgb(173, 216, 230);
+    border: 2px solid #13005A;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-family: 'Roboto-Regular', sans-serif;
+    border-radius: 10px;
+}
+
+button:hover,
+.editContactButton:hover {
+    border: 2px solid #03C988;
+}
+
+button:active,
+.editContactButton:active {
+    box-shadow: inset 0px 0px 5px #fff;
+}
