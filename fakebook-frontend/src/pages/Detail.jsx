@@ -43,18 +43,23 @@ const Detail = ({ refresh, setRefresh }) => {
     return (
         <main className="detailMain">
             <section className={deleteSuccess ? "singleContact singleSuccess" : "singleContact"}>
-                <p>{singleContact[0]?.name}</p>
-                <p>{singleContact[0]?.last}</p>
-                <p>{singleContact[0]?.dob}</p>
-                <p>{singleContact[0]?.cell}</p>
-                <p>{singleContact[0]?.email}</p>
-                <p>{singleContact[0]?.job}</p>
-                <p>{singleContact[0]?.salary}</p>
-                <p>{singleContact[0]?.freelance ? 'freelancer' : 'employee'}</p>
-                <p>{singleContact[0]?.existing ? 'existing contact' : 'potential contact'}</p>
+                <section className="contactDetails">
+                    <div className="contactName">
+                        <p>{singleContact[0]?.name}</p>
+                        <p>{singleContact[0]?.last}</p>
+                    </div>
+                    <div className="contactRight">
+                        <p>{singleContact[0]?.dob}</p>
+                        <p>{singleContact[0]?.phone}</p>
+                        <p>{singleContact[0]?.email}</p>
+                        <p>{singleContact[0]?.job}, {singleContact[0]?.salary} € per annum</p>
+                        <p>{singleContact[0]?.freelance ? 'freelancer' : 'employee'}</p>
+                        <p>{singleContact[0]?.existing ? 'existing contact' : 'potential contact'}</p>
+                    </div>
+                </section>
                 <section className="detailButtonSection">
-                    <button onClick={deleteContact}>delete contact</button>
-                    <Link to={`/edit/${params.id}`} className="editContactButton">edit contact</Link>
+                    <button onClick={deleteContact} className="editContactButton">delete</button>
+                    <Link to={`/edit/${params.id}`} className="editContactButton">edit</Link>
                 </section>
                 {deletePending &&
                     <p>Your request is processing. Thanks for your patience with our server!</p>

@@ -20,12 +20,21 @@
     background-color: #13005A;
     border-radius: 10px;
     border: 2px solid rgba(173, 216, 230, 0.2);
+    cursor: pointer;
 }
 
 .page-item a {
     text-decoration: none;
     color: #03C988;
     font-size: 2rem;
+}
+
+.activePage {
+    background-color: #03C988;
+}
+
+.activePage a {
+    color: #13005A
 }
 
 .page-item p {
@@ -36,10 +45,12 @@
     border: 2px solid #03C988;
 }
 
-.page-item-arrow .active {
-    background-color: #1C82AD;
+.page-item-arrow {
+    border: 2px solid rgba(173, 216, 230, 0.0);
+    border-radius: 10px;
+    cursor: pointer;
 }
 
-.arrow {
-    color: aliceblue;
+.page-item-arrow:hover {
+    border: 2px solid #03C988;
 }

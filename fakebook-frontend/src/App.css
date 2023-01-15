@@ -45,10 +45,77 @@ h2 {
   color: #13005A;
 }
 
+h3 {
+  font-size: 2.4rem;
+  font-family: 'Roboto-Bold', sans-serif;
+  color: #13005A;
+}
+
 p,
-input,
-label {
+input[type=text],
+input[type=number],
+input[type=email],
+label,
+span {
   font-size: 1.6rem;
   font-family: 'Roboto-Regular', sans-serif;
   color: #00337C;
+}
+
+.addMain,
+.editMain,
+.detailMain {
+  display: flex;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+input[type=text],
+input[type=number],
+input[type=email] {
+  margin: 10px 0;
+  padding: 5px;
+  width: 200px;
+  border-radius: 5px;
+  border: 2px solid #13005A;
+}
+
+label {
+  margin: 0 10px 0 2px;
+}
+
+input[type=submit],
+button,
+.editContactButton,
+.editSubmitInput {
+  font-family: 'Roboto-Regular', sans-serif;
+  margin-top: 20px;
+  height: 30px;
+  color: white;
+  background-color: #13005A;
+  border-radius: 10px;
+  font-size: 1.6rem;
+  border: 2px solid rgba(173, 216, 230, 0.2);
+  cursor: pointer;
+}
+
+input[type=submit]:hover,
+button:hover,
+.editContactButton:hover,
+.editSubmitInput:hover {
+  color: white;
+  background-color: #13005A;
+  border: 2px solid #03C988;
+}
+
+input[type=submit]:active,
+button:active,
+.editContactButton:active,
+.editSubmitInput:active {
+  box-shadow: inset 0px 0px 5px #fff;
 }

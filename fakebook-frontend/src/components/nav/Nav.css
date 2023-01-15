@@ -14,10 +14,9 @@ header {
 
 header a {
     text-decoration: none;
-    color: black;
+    color: #13005A;
 }
 
 header a:hover {
     text-decoration: underline;
-    color: red;
 }

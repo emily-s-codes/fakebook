@@ -20,6 +20,7 @@
 - [x] ROUTES: crud
     - [x] put (/contacts/:id)
     - [x] delete (/contacts/:id)
+- [ ] data validation
 - [ ] sort data functionality
 - [ ] photo upload
     
@@ -44,14 +45,13 @@
     - [x] back (useNav -1)
     - [x] add
 - [x] change favicon
-- [ ] find Dribbble design
-- [ ] implement design
+- [x] implement basic design
 
 ## Frontend 2.0
-- [ ] setup pages
+- [x] setup pages
     - [x] edit
-- [ ] setup components
+- [x] setup components
     - [x] delete
-    - [ ] edit
+    - [x] edit
 - [ ] set up drop down for sort functionality
 - [ ] update to allow photo upload and to display photo

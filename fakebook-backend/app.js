@@ -23,7 +23,8 @@ app.get(fakebookPath, getAllContacts)
 
 app.get(profilePath, getSingleContact)
 
-app.post(addPath, formReader.none(),
+app.post(addPath,
+    formReader.none(),
     // body('email').isEmail(),
     // body('name').isLength({ min: 1, max: 50 }),
     // body('last').isLength({ min: 1, max: 50 }),

@@ -10,7 +10,7 @@ const Edit = ({ contacts, refresh, setRefresh }) => {
     const [editContact, setEditContact] = useState([])
     const [currentContactState, setCurrentContactState] = useState("")
 
-    console.log(currentContactState?.existing)
+    console.log(currentContactState)
 
     useEffect(() => {
         const currentContact = contacts.filter(contact => contact._id === params.id)[0]
@@ -57,6 +57,7 @@ const Edit = ({ contacts, refresh, setRefresh }) => {
 
     return (
         <main className="editMain">
+            <h2>Edit Contact</h2>
             <section className="mainForm">
                 <form onSubmit={submitUpdate} className={editSuccess ? "success" : ""}>
                     <input type="text" placeholder="first name"
@@ -64,18 +65,18 @@ const Edit = ({ contacts, refresh, setRefresh }) => {
                     <input type="text" placeholder="last name"
                         name="last" maxLength="100" defaultValue={currentContactState?.last} />
                     <input type="text" placeholder="MM-DD-YYYY" name="dob" defaultValue={currentContactState?.dob} />
-                    <input type="number" placeholder="cell number" name="cell" defaultValue={currentContactState?.cell} />
+                    <input type="number" placeholder="phone number" name="phone" defaultValue={currentContactState?.phone} />
                     <input type="email" placeholder="email address" name="email" defaultValue={currentContactState?.email} />
                     <input type="text" placeholder="job title" name="job" defaultValue={currentContactState?.job} />
                     <div>
-                        <input type="number" placeholder="annual salary in euro" name="salary" defaultValue={currentContactState?.salary} /><span> €</span>
+                        <input type="text" placeholder="annual salary" name="salary" defaultValue={currentContactState?.salary} /><span> €</span>
                     </div>
-                    <div>
+                    <div className="editRadioDiv">
                         <p>Freelancer?</p>
                         <input type="radio" name="freelance" placeholder="freelance" id="freelanceY" value="true" defaultChecked={currentContactState?.freelance ? true : false} /><label htmlFor="freelanceY">Yes</label>
                         <input type="radio" name="freelance" placeholder="freelance" id="freelanceN" value="false" defaultChecked={currentContactState?.freelance ? false : true} /><label htmlFor="freelanceN">No</label>
                     </div>
-                    <div>
+                    <div className="editRadioDiv">
                         <p>Contact?</p>
                         <input type="radio" name="contact" id="new" value="false" defaultChecked={(currentContactState?.existing === true) ? false : true} /><label htmlFor="new">New</label>
                         <input type="radio" name="contact" id="existing" value="true" defaultChecked={(currentContactState?.existing === true) ? true : false} /><label htmlFor="existing">Existing</label>
@@ -85,28 +86,28 @@ const Edit = ({ contacts, refresh, setRefresh }) => {
                 {editSuccess &&
                     <section className="editSuccessSection">
                         <p>Thanks for updating your contacts list!</p>
-                        <Link to="/" >Home</Link>
-                        <p onClick={() => window.location.reload()}>Edit Again</p>
+                        <Link to="/" className="editSubmitInput" >Home</Link>
                     </section>}
                 {editFailure &&
                     <section className="editFailSection">
                         <p>Sorry, something went wrong with your request.</p>
-                        <Link to="/" >Home</Link>
+                        <Link to="/" className="editSubmitInput">Home</Link>
                     </section>
                 }
             </section>
             {editSuccess &&
                 <section className="newContactInfo">
-                    <h2>Updated Contact Info</h2>
+                    <h3>Updated Contact Info</h3>
                     <p>First Name: {editContact?.name}</p>
                     <p>Last Name: {editContact?.last}</p>
                     <p>Date of Birth: {editContact?.dob}</p>
-                    <p>Cell: {editContact?.cell}</p>
+                    <p>Phone: {editContact?.phone}</p>
                     <p>Email: {editContact?.email}</p>
                     <p>Job: {editContact?.job}</p>
                     <p>Salary: {editContact?.salary}</p>
                     {editContact?.freelance ? <p>Employment type: freelancer</p> : <p>Employment type: employee</p>}
                     {editContact?.contact ? <p>Existing contact</p> : <p>New contact</p>}
+                    <p onClick={() => window.location.reload()} className="editSubmitInput">Edit Again</p>
                 </section>}
         </main>
     );

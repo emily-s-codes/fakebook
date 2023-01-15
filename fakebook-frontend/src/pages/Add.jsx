@@ -36,29 +36,30 @@ const Add = ({ refresh, setRefresh }) => {
 
     return (
         <main className="addMain">
+            <h2>New Contact</h2>
             <form onSubmit={submitForm} className={success ? "success" : ""}>
                 <input type="text" placeholder="first name"
                     name="name" maxLength="20" />
                 <input type="text" placeholder="last name"
                     name="last" maxLength="100" />
                 <input type="text" placeholder="MM-DD-YYYY" name="dob" />
-                <input type="number" placeholder="cell number" name="cell" />
+                <input type="number" placeholder=" number" name="phone" />
                 <input type="email" placeholder="email address" name="email" />
                 <input type="text" placeholder="job title" name="job" />
                 <div>
-                    <input type="number" placeholder="annual salary in euro" name="salary" /><span> €</span>
+                    <input type="number" placeholder="annual salary" name="salary" /><span> €</span>
                 </div>
-                <div>
+                <div className="addRadioDiv">
                     <p>Freelancer?</p>
                     <input type="radio" name="freelance" placeholder="freelance" id="freelanceY" value="true" /><label htmlFor="freelanceY">Yes</label>
                     <input type="radio" name="freelance" placeholder="freelance" id="freelanceN" value="false" defaultChecked /><label htmlFor="freelanceN">No</label>
                 </div>
-                <div>
+                <div className="addRadioDiv">
                     <p>Contact?</p>
                     <input type="radio" name="contact" id="new" value="false" defaultChecked /><label htmlFor="new">New</label>
                     <input type="radio" name="contact" id="existing" value="true" /><label htmlFor="existing">Existing</label>
                 </div>
-                <input type="submit" value="add" onClick={() => setPending(!pending)} />
+                <input className="addSubmitInput" type="submit" value="add" onClick={() => setPending(!pending)} />
             </form>
             {success &&
                 <section className="successSection">
