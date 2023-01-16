@@ -1,7 +1,15 @@
 import Contact from "../components/contact/Contact";
 import Pagination from "../components/pagination/Pagination";
 import "./Home.css"
-const Home = ({ currentRecords, loading, nPages, currentPage, setCurrentPage }) => {
+const Home = ({
+    recordsPerPage,
+    onPageChange,
+    totalCount,
+    currentRecords,
+    loading,
+    nPages,
+    currentPage,
+    setCurrentPage }) => {
 
 
     return (
@@ -14,7 +22,7 @@ const Home = ({ currentRecords, loading, nPages, currentPage, setCurrentPage }) 
                     return <Contact key={key} contact={contact} />
                 })}
             </section>
-            <Pagination nPages={nPages} currentPage={currentPage} setCurrentPage={setCurrentPage} />
+            <Pagination recordsPerPage={recordsPerPage} onPageChange={onPageChange} totalCount={totalCount} nPages={nPages} currentPage={currentPage} setCurrentPage={setCurrentPage} />
         </main>);
 }
 

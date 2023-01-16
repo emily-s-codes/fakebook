@@ -13,12 +13,17 @@ function App() {
   const [refresh, setRefresh] = useState(true)
   const [loading, setLoading] = useState(true)
   const [currentPage, setCurrentPage] = useState(1)
-  const [recordsPerPage] = useState(6)
+  const recordsPerPage = 6
+  const [totalCount, setTotalCount] = useState(0)
 
   const indexOfLast = currentPage * recordsPerPage
   const indexOfFirst = indexOfLast - recordsPerPage
   const nPages = Math.ceil(contacts.length / recordsPerPage)
   const currentRecords = contacts.slice(indexOfFirst, indexOfLast)
+
+  const onPageChange = () => {
+
+  }
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_BACKENDURL}/api/fakebook`)
@@ -27,7 +32,7 @@ function App() {
         return res.json()
       })
       .then(data => {
-        console.log(data)
+        setTotalCount(data.length)
         setContacts(data)
       })
       .catch(err => console.log(err))
@@ -38,7 +43,7 @@ function App() {
       <Router>
         <Nav />
         <Routes>
-          <Route path={'/'} element={<Home currentRecords={currentRecords} loading={loading} nPages={nPages} currentPage={currentPage} setCurrentPage={setCurrentPage} />} />
+          <Route path={'/'} element={<Home recordsPerPage={recordsPerPage} onPageChange={onPageChange} totalCount={totalCount} currentRecords={currentRecords} loading={loading} nPages={nPages} currentPage={currentPage} setCurrentPage={setCurrentPage} />} />
           <Route path={'/contact/:id'} element={<Detail refresh={refresh} setRefresh={setRefresh} contacts={contacts} />} />
           <Route path={'/new'} element={<Add refresh={refresh} setRefresh={setRefresh} />} />
           <Route path={'/edit/:id'} element={<Edit contacts={contacts} refresh={refresh} setRefresh={setRefresh} />} />
