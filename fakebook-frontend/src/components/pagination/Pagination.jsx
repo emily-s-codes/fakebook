@@ -63,7 +63,8 @@ const Pagination = ({
                                 key={pageNumber}
                                 onClick={() => setCurrentPage(pageNumber)}
                                 className={classNames('page-item', {
-                                    selected: pageNumber === currentPage
+                                    // selected: pageNumber === currentPage
+                                    activePage: pageNumber === currentPage
                                 })}>
                                 <a href="#"
                                     className='page-link'>
