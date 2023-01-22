@@ -13,7 +13,7 @@ function App() {
   const [refresh, setRefresh] = useState(true)
   const [loading, setLoading] = useState(true)
   const [currentPage, setCurrentPage] = useState(1)
-  const [recordsPerPage] = useState(6)
+  const [recordsPerPage] = useState(8)
 
   const indexOfLast = currentPage * recordsPerPage
   const indexOfFirst = indexOfLast - recordsPerPage

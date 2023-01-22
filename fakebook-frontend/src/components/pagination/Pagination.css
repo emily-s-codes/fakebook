@@ -54,3 +54,9 @@
 .page-item-arrow:hover {
     border: 2px solid #03C988;
 }
+
+@media only screen and (max-width: 767px) {
+    .paginationPages {
+        display: none;
+    }
+}
