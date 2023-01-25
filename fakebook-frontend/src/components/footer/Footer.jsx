@@ -1,7 +1,7 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import "./Footer.css"
 import { GrHomeRounded, GrAdd } from 'react-icons/gr'
-import { BsArrowLeft, BsArrowRight } from 'react-icons/bs'
+import { BsArrowLeft } from 'react-icons/bs'
 
 const Footer = () => {
     const navigate = useNavigate()

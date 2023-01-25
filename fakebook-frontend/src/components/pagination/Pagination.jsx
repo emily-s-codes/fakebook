@@ -29,6 +29,7 @@ const Pagination = ({ nPages, currentPage, setCurrentPage }) => {
                                 key={page}
                                 onClick={() => setCurrentPage(page)}
                                 className={`page-item ${currentPage === page ? 'activePage' : ''}`}>
+                                {/* eslint-disable-next-line */}
                                 <a href="#"
                                     className='page-link'>
                                     {page}

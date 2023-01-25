@@ -16,7 +16,7 @@ const Edit = ({ contacts, refresh, setRefresh }) => {
         const currentContact = contacts.filter(contact => contact._id === params.id)[0]
         console.log(currentContact)
         setCurrentContactState(currentContact)
-    }, [contacts])
+    }, [contacts, params.id])
 
     useEffect(() => {
         fetch(`${process.env.REACT_APP_BACKENDURL}/api/fakebook/profile/${params.id}`)
@@ -28,11 +28,7 @@ const Edit = ({ contacts, refresh, setRefresh }) => {
                 setEditContact(data[0])
             })
             .catch(err => console.log(err))
-    }, [refresh])
-
-    const editAgain = () => {
-
-    }
+    }, [refresh, params.id])
 
     const submitUpdate = (e) => {
         e.preventDefault()
