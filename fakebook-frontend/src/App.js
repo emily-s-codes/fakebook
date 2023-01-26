@@ -39,7 +39,7 @@ function App() {
         <Nav />
         <Routes>
           <Route path={'/'} element={<Home currentRecords={currentRecords} loading={loading} nPages={nPages} currentPage={currentPage} setCurrentPage={setCurrentPage} />} />
-          <Route path={'/contact/:id'} element={<Detail refresh={refresh} setRefresh={setRefresh} contacts={contacts} />} />
+          <Route path={'/contact/:id'} element={<Detail loading={loading} refresh={refresh} setRefresh={setRefresh} contacts={contacts} />} />
           <Route path={'/new'} element={<Add refresh={refresh} setRefresh={setRefresh} />} />
           <Route path={'/edit/:id'} element={<Edit contacts={contacts} refresh={refresh} setRefresh={setRefresh} />} />
         </Routes>

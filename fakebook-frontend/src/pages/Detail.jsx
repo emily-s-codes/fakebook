@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import "./Detail.css"
 
-const Detail = ({ refresh, setRefresh }) => {
+const Detail = ({ refresh, setRefresh, loading }) => {
     const params = useParams()
     const [singleContact, setSingleContact] = useState([])
     const [deleteSuccess, setDeleteSuccess] = useState(false)
@@ -42,6 +42,9 @@ const Detail = ({ refresh, setRefresh }) => {
 
     return (
         <main className="detailMain">
+            {loading && <section>
+                <p>Your contact is loading ...</p>
+            </section>}
             <section className={deleteSuccess ? "singleContact singleSuccess" : "singleContact"}>
                 <section className="contactDetails">
                     <div className="contactName">
